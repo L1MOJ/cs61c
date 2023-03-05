@@ -61,22 +61,33 @@ map:
     # - 4 for the array pointer
     # - 4 for the size of the array
     # - 4 more for the pointer to the next node
-mapLoop:
-    add t1, s0, x0      # load the address of the array of current node into t1
+    #wrong
+    #add t1, s0, x0
+    lw t1, 0(s0)        # load the address of the array of current node into t1
     lw t2, 4(s0)        # load the size of the node's array into t2
-
-    add t1, t1, t0      # offset the array address by the count
+    addi t1, t1, -4     #to offset the first element +4 OFFSET below
+mapLoop:
+    #wrong
+    #add t1, t1, t0
+    addi t1, t1, 4      # offset the array address by the count
     lw a0, 0(t1)        # load the value at that address into a0
-
+    #wrong              save before jar/jalr
+    addi sp, sp, -4
+    sw t1, 0(sp)
     jalr s1             # call the function on that value.
+    #wrong
+    lw t1, 0(sp)
+    addi sp, sp, 4
 
     sw a0, 0(t1)        # store the returned value back into the array
     addi t0, t0, 1      # increment the count
     bne t0, t2, mapLoop # repeat if we haven't reached the array size yet
-
-    la a0, 8(s0)        # load the address of the next node into a0
-    lw a1, 0(s1)        # put the address of the function back into a1 to prepare for the recursion
-
+    #wrong
+    #la a0, 8(s0)
+    lw a0, 8(s0)        # load the address of the next node into a0
+    #wrong
+    #lw a1, 0(s1)        # put the address of the function back into a1 to prepare for the recursion
+    add a1, x0, s1
     jal  map            # recurse
 done:
     lw s0, 8(sp)
@@ -170,3 +181,4 @@ malloc:
     li a0, 9
     ecall
     jr ra
+
