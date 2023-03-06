@@ -25,16 +25,77 @@
 write_matrix:
 
     # Prologue
+	addi sp, sp, -36
+	sw ra, 0(sp)
+	sw s0, 4(sp)
+	sw s1, 8(sp)
+	sw s2, 12(sp)
+	sw s3, 16(sp)
+	sw s4, 20(sp)
+	sw s5, 24(sp)
+	sw s6, 28(sp)
+	sw s7, 32(sp)
 
+    mv s0, a0   #s0 -> ptr to filename
+    mv s1, a1   #s1 -> ptr to matrix
+    mv s2, a2   #s2 -> rows
+    mv s3, a3   #s3 -> cols
+    #fopen
+    mv a1, s0
+    li a2, 1    #write
+    jal fopen
+    li t0, -1
+    beq a0, t0, exit93
+    mv s4, a0   #s4 -> file descriptor
 
+    li a0, 8
+    jal malloc
+    sw s2, 0(a0)
+    sw s3, 4(a0)
+    #write row/col
+    mv a1, s4
+    mv a2, a0
+    li a3, 2
+    li a4, 4
+    jal fwrite
+    li t0, 2
+    bne t0, a0, exit94
+    jal free
+    #write elements in matrix
+    mv a1, s4
+    mv a2, s1
+    mul a3, s2, s3
+    li a4, 4
+    jal fwrite
+    mul t0, s2, s3
+    bne t0, a0, exit94
 
-
-
-
-
-
-
+    mv a1, s4
+    jal fclose
+    li t0, -1
+    beq t0, a0, exit95
     # Epilogue
-
+    lw ra, 0(sp)
+	lw s0, 4(sp)
+	lw s1, 8(sp)
+	lw s2, 12(sp)
+	lw s3, 16(sp)
+	lw s4, 20(sp)
+	lw s5, 24(sp)
+	lw s6, 28(sp)
+	lw s7, 32(sp)
+    addi sp, sp, 36
 
     ret
+exit93:
+    li a1, 93
+    j exit2
+
+exit94:
+    li a1, 94
+    j exit2
+
+exit95:
+    li a1, 95
+    j exit2
+

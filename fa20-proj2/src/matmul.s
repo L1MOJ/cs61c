@@ -71,8 +71,8 @@ outer_loop_start:
 
 #Traverse the whole row of a0, the whole column of a1
 inner_loop_start:
-
-    addi sp, sp, -44
+    
+    addi sp, sp, -32
     sw t0, 0(sp)
     sw t1, 4(sp)
     sw t2, 8(sp)
@@ -81,9 +81,6 @@ inner_loop_start:
     sw t5, 20(sp)
     sw t6, 24(sp)
     sw a1, 28(sp)
-    sw a2, 32(sp)
-    sw a3, 36(sp)
-    sw a4, 40(sp)
 
     jal dot
 
@@ -95,10 +92,7 @@ inner_loop_start:
     lw t5, 20(sp)
     lw t6, 24(sp)
     lw a1, 28(sp)
-    lw a2, 32(sp)
-    lw a3, 36(sp)
-    lw a4, 40(sp)
-    addi sp, sp, 44
+    addi sp, sp, 32
 
 inner_loop_end:
 

@@ -16,54 +16,47 @@
 #   this function terminates the program with error code 75.
 # - If the stride of either vector is less than 1,
 #   this function terminates the program with error code 76.
-#   t0 -> loop count
-#   t3 -> temp
-#   t4 -> sum
-#   matrix parameters
-# 	a0 (int*)  is the pointer to the start of m0 left
-#	a1 (int)   is the # of rows (height) of m0  left
-#	a2 (int)   is the # of columns (width) of m0
-
-#	a3 (int*)  is the pointer to the start of m1  right
-# 	a4 (int)   is the # of rows (height) of m1    right
-#	a5 (int)   is the # of columns (width) of m1
-
-#	a6 (int*)  is the pointer to the the start of d
 # =======================================================
 dot:
+    # check exceptions
+    ble a2, zero, exit_75
+    ble a3, zero, exit_76
+    ble a4, zero, exit_76
     # Prologue
-    li t0, 1
-    li t5, 4
-    li t6, 4
-    ble a2, zero, exit75
-    ble a3, zero, exit76
-    ble a4, zero, exit76
-continue:
-    #length >= 1
-    add t0, x0, x0
-    add t4, x0, x0
-    mul t5, t5, a3  #stride of v0
-    mul t6, t6, a4  #stride of v1
+	addi sp, sp, -12
+    sw s0, 0(sp)
+    sw s1, 4(sp)
+    sw s2, 8(sp)
+    # init values
+    li t0, 4
+    li t1, 4
+    mul t0, t0, a3 # array0's stride
+    mul t1, t1, a4 # array1's stride
+    li t2, 0 # i = 0
+    li s0, 0 # sum = 0
 loop_start:
-    beq t0, a2, loop_end
-    lw t1, 0(a0)
-    lw t2, 0(a1)
-    mul t3, t1, t2
-    add t4, t4, t3
-    addi t0, t0, 1
-    add a0, a0, t5
-    add a1, a1, t6
+	lw s1 0(a0)
+    lw s2, 0(a1)
+    mul t3, s1, s2
+    add s0, s0, t3
+	addi t2, t2, 1
+    beq t2, a2, loop_end
+    add a0, a0, t0
+    add a1, a1, t1
     j loop_start
 loop_end:
-
+	mv a0, s0
     # Epilogue
-    add a0, t4, x0
+	lw s0, 0(sp)
+    lw s1, 4(sp)
+    lw s2, 8(sp)
+    addi sp, sp, 12
     ret
 
-exit75:
-    li a1, 75
+exit_75:
+	li a1, 75
     j exit2
 
-exit76:
-    li a1,76
+exit_76:
+    li a1, 76
     j exit2
