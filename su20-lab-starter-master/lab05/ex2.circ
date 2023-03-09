@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project source="2.14.6" version="1.0">
-This file is intended to be loaded by Logisim-evolution (https://github.com/reds-heig/logisim-evolution).
-<lib desc="#Wiring" name="0">
+  This file is intended to be loaded by Logisim-evolution (https://github.com/reds-heig/logisim-evolution).
+
+  <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
@@ -155,8 +156,22 @@ end TCL_Generic;
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="circuitnamedbox" val="true"/>
     <a name="circuitvhdlpath" val=""/>
-    <wire from="(490,240)" to="(500,240)"/>
-    <wire from="(490,290)" to="(500,290)"/>
+    <wire from="(270,240)" to="(270,340)"/>
+    <wire from="(370,340)" to="(430,340)"/>
+    <wire from="(260,380)" to="(260,450)"/>
+    <wire from="(140,350)" to="(140,520)"/>
+    <wire from="(180,320)" to="(180,330)"/>
+    <wire from="(260,380)" to="(310,380)"/>
+    <wire from="(140,350)" to="(190,350)"/>
+    <wire from="(130,320)" to="(180,320)"/>
+    <wire from="(430,340)" to="(430,520)"/>
+    <wire from="(430,290)" to="(430,340)"/>
+    <wire from="(180,330)" to="(190,330)"/>
+    <wire from="(230,340)" to="(270,340)"/>
+    <wire from="(140,520)" to="(430,520)"/>
+    <wire from="(270,340)" to="(310,340)"/>
+    <wire from="(430,290)" to="(500,290)"/>
+    <wire from="(270,240)" to="(500,240)"/>
     <comp lib="0" loc="(500,240)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -173,6 +188,14 @@ end TCL_Generic;
     </comp>
     <comp lib="8" loc="(408,169)" name="Text">
       <a name="text" val="PUT CIRCUITRY HERE"/>
+    </comp>
+    <comp lib="4" loc="(310,310)" name="Register"/>
+    <comp lib="0" loc="(260,450)" name="Clock">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="3" loc="(230,340)" name="Adder"/>
+    <comp lib="0" loc="(130,320)" name="Constant">
+      <a name="width" val="8"/>
     </comp>
   </circuit>
 </project>

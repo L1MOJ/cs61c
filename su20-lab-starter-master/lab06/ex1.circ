@@ -273,6 +273,31 @@ end TCL_Generic;
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="circuitnamedbox" val="true"/>
     <a name="circuitvhdlpath" val=""/>
+    <wire from="(540,130)" to="(540,330)"/>
+    <wire from="(300,210)" to="(300,280)"/>
+    <wire from="(190,90)" to="(190,100)"/>
+    <wire from="(380,120)" to="(430,120)"/>
+    <wire from="(400,180)" to="(520,180)"/>
+    <wire from="(380,110)" to="(380,120)"/>
+    <wire from="(370,330)" to="(540,330)"/>
+    <wire from="(180,120)" to="(220,120)"/>
+    <wire from="(180,120)" to="(180,150)"/>
+    <wire from="(260,110)" to="(300,110)"/>
+    <wire from="(370,240)" to="(370,330)"/>
+    <wire from="(190,100)" to="(220,100)"/>
+    <wire from="(400,140)" to="(430,140)"/>
+    <wire from="(540,130)" to="(560,130)"/>
+    <wire from="(360,110)" to="(380,110)"/>
+    <wire from="(500,240)" to="(520,240)"/>
+    <wire from="(170,90)" to="(190,90)"/>
+    <wire from="(400,140)" to="(400,180)"/>
+    <wire from="(300,280)" to="(440,280)"/>
+    <wire from="(170,150)" to="(180,150)"/>
+    <wire from="(300,150)" to="(300,210)"/>
+    <wire from="(520,180)" to="(520,240)"/>
+    <wire from="(170,210)" to="(300,210)"/>
+    <wire from="(470,130)" to="(540,130)"/>
+    <wire from="(370,240)" to="(440,240)"/>
     <comp lib="0" loc="(170,90)" name="Pin">
       <a name="width" val="8"/>
       <a name="label" val="in1"/>
@@ -291,5 +316,9 @@ end TCL_Generic;
       <a name="label" val="out1"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="3" loc="(260,110)" name="Multiplier"/>
+    <comp lib="4" loc="(300,80)" name="Register"/>
+    <comp lib="3" loc="(470,130)" name="Adder"/>
+    <comp lib="4" loc="(440,210)" name="Register"/>
   </circuit>
 </project>
