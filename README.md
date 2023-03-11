@@ -159,7 +159,6 @@ p是二级指针，指向的类型是**指向Color的指针，**所以p加上整
 
 - 如果在调用另一个函数时，有重复使用的寄存器一定要先入栈
   - ![10c02cc4899430476fb49f71c87d486.jpg](https://cdn.nlark.com/yuque/0/2023/jpeg/5357310/1678026027345-a117384c-2eeb-4078-9c20-2ed5571a1909.jpeg#averageHue=%23fefefc&clientId=u43dadcf0-dc3e-4&from=drop&id=u748e6ee6&name=10c02cc4899430476fb49f71c87d486.jpg&originHeight=798&originWidth=1712&originalType=binary&ratio=1&rotation=0&showTitle=false&size=264585&status=done&style=none&taskId=u3c5f8ab2-ab0f-4781-8777-9cf8d16a3d6&title=)否则会出现error，目前还没搞明白为什么， 明明在另一个函数里已经重新赋值了
-- exit2 和 exit不一样？
 
 ## Part B
 
