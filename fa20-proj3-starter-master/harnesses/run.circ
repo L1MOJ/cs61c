@@ -5,8 +5,39 @@
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="appear" val="center"/>
-      <a name="fanout" val="4"/>
-      <a name="incoming" val="4"/>
+      <a name="bit1" val="0"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="1"/>
+      <a name="bit12" val="2"/>
+      <a name="bit13" val="2"/>
+      <a name="bit14" val="2"/>
+      <a name="bit15" val="3"/>
+      <a name="bit16" val="3"/>
+      <a name="bit17" val="3"/>
+      <a name="bit18" val="3"/>
+      <a name="bit19" val="3"/>
+      <a name="bit2" val="0"/>
+      <a name="bit20" val="4"/>
+      <a name="bit21" val="4"/>
+      <a name="bit22" val="4"/>
+      <a name="bit23" val="4"/>
+      <a name="bit24" val="4"/>
+      <a name="bit25" val="4"/>
+      <a name="bit26" val="4"/>
+      <a name="bit27" val="4"/>
+      <a name="bit28" val="4"/>
+      <a name="bit29" val="4"/>
+      <a name="bit3" val="0"/>
+      <a name="bit30" val="4"/>
+      <a name="bit31" val="4"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="0"/>
+      <a name="bit6" val="0"/>
+      <a name="bit7" val="1"/>
+      <a name="bit8" val="1"/>
+      <a name="bit9" val="1"/>
+      <a name="fanout" val="5"/>
+      <a name="incoming" val="32"/>
     </tool>
     <tool name="Pin">
       <a name="facing" val="north"/>
@@ -15,7 +46,7 @@
       <a name="radix" val="16"/>
     </tool>
     <tool name="Tunnel">
-      <a name="width" val="2"/>
+      <a name="width" val="12"/>
     </tool>
     <tool name="Pull Resistor">
       <a name="facing" val="north"/>
@@ -40,7 +71,7 @@
       <a name="width" val="3"/>
     </tool>
     <tool name="AND Gate">
-      <a name="width" val="16"/>
+      <a name="width" val="32"/>
     </tool>
     <tool name="NAND Gate">
       <a name="size" val="30"/>
@@ -79,10 +110,11 @@
       <a name="width" val="16"/>
     </tool>
     <tool name="Subtractor">
-      <a name="width" val="16"/>
+      <a name="width" val="32"/>
     </tool>
     <tool name="Multiplier">
-      <a name="width" val="1"/>
+      <a name="mode" val="twosComplement"/>
+      <a name="width" val="32"/>
     </tool>
     <tool name="Divider">
       <a name="width" val="16"/>
@@ -91,10 +123,10 @@
       <a name="width" val="1"/>
     </tool>
     <tool name="Comparator">
-      <a name="width" val="16"/>
+      <a name="width" val="32"/>
     </tool>
     <tool name="Shifter">
-      <a name="width" val="16"/>
+      <a name="shift" val="lr"/>
     </tool>
   </lib>
   <lib desc="#Memory" name="4">
